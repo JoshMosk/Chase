@@ -4,10 +4,10 @@
 class WanderBehaviour : public BaseSteeringBehaviour
 {
 public:
-	WanderBehaviour(Agent* pSelf = nullptr);
+	WanderBehaviour(Agent* pSelf, float fRadius, float fDistance, float fJitter);
 	~WanderBehaviour();
 
-	void Update(float fDeltaTime, Vector2* v2Target);		//v2Target is not used, just there to override BaseSteeringBehaviour Update
+	Vector2 Update(float fDeltaTime, Vector2* v2Target);		//v2Target is not used, just there to override BaseSteeringBehaviour Update
 
 	float m_fRadius;
 	float m_fDistance;

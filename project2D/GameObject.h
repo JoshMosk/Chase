@@ -17,8 +17,8 @@ public:
 	Vector2 GetPosition();
 
 	//rotation setters and getters
-	void SetRotation(float fRadians);
-	float GetRotation();
+	void SetRotation(float fRadians);		//sets both matrix rotation and a float variable for reference
+	float GetRotation();		//returns m_fRotation float as extracting rotation from a matrix is too convoluted
 
 protected:
 	Matrix3 m_m3Transform;		//gameobject matrix

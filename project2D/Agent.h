@@ -11,6 +11,8 @@ public:
 	virtual void Update(float fDeltaTime);
 	virtual void Draw(aie::Renderer2D* pRenderer);
 
+
+	//setters and getters
 	void SetVelocity(Vector2 v2Velocity);
 	Vector2 GetVelocity();
 

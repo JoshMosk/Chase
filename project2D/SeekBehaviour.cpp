@@ -1,7 +1,7 @@
 #include "SeekBehaviour.h"
 #include "Agent.h"
 
-SeekBehaviour::SeekBehaviour()
+SeekBehaviour::SeekBehaviour(Agent* pSelf) : BaseSteeringBehaviour(pSelf)
 {
 }
 

@@ -1,7 +1,7 @@
 #include "FleeBehaviour.h"
 #include "Agent.h"
 
-FleeBehaviour::FleeBehaviour()
+FleeBehaviour::FleeBehaviour(Agent* pSelf) : BaseSteeringBehaviour(pSelf)
 {
 }
 

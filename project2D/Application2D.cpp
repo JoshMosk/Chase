@@ -2,6 +2,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
+#include <time.h>
 
 Application2D::Application2D() {
 
@@ -13,6 +14,8 @@ Application2D::~Application2D() {
 
 bool Application2D::startup() {
 	
+	srand(time(NULL));
+
 	m_2dRenderer = new aie::Renderer2D();
 
 	m_texture = new aie::Texture("./textures/numbered_grid.tga");

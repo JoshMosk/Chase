@@ -15,7 +15,7 @@ void Agent::Update(float fDeltaTime)
 
 }
 
-void Agent::Draw(aie::Renderer2D* pRenderer)		//draws 
+void Agent::Draw(aie::Renderer2D* pRenderer)		//draws texture of agent using matrix
 {
 	pRenderer->drawSpriteTransformed3x3(m_pTexture, (float*)m_m3Transform);
 }

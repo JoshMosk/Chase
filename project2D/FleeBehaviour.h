@@ -4,7 +4,7 @@
 class FleeBehaviour : public BaseSteeringBehaviour
 {
 public:
-	FleeBehaviour();
+	FleeBehaviour(Agent* pSelf = nullptr);
 	~FleeBehaviour();
 
 	virtual Vector2 Update(float fDeltaTime, Vector2* v2Target);

@@ -21,13 +21,13 @@ Vector2 GameObject::GetPosition()
 	return m_m3Transform.GetPosition();
 }
 
-void GameObject::SetRotation(float fRadians)
+void GameObject::SetRotation(float fRadians)		//sets both matrix rotation and a float variable for reference
 {
 	m_m3Transform.setRotateZ(fRadians);
 	m_fRotation = fRadians;
 }
 
-float GameObject::GetRotation()
+float GameObject::GetRotation()		//returns m_fRotation float as extracting rotation from a matrix is too convoluted
 {
 	return m_fRotation;
 }

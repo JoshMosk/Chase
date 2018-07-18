@@ -22,7 +22,9 @@ bool Application2D::startup() {
 	m_shipTexture = new aie::Texture("./textures/ship.png");
 
 	m_font = new aie::Font("./font/consolas.ttf", 32);
-	
+
+	m_human = new Human(Vector2(100,300), 0, 100, m_shipTexture);
+
 	m_cameraX = 0;
 	m_cameraY = 0;
 	m_timer = 0;
@@ -30,8 +32,9 @@ bool Application2D::startup() {
 	return true;
 }
 
-void Application2D::shutdown() {
-	
+void Application2D::shutdown() 
+{
+	delete m_human;
 	delete m_font;
 	delete m_texture;
 	delete m_shipTexture;
@@ -44,6 +47,8 @@ void Application2D::update(float deltaTime) {
 
 	// input example
 	aie::Input* input = aie::Input::getInstance();
+
+	m_human->Update(deltaTime);
 
 	// use arrow keys to move camera
 	if (input->isKeyDown(aie::INPUT_KEY_UP))
@@ -73,6 +78,8 @@ void Application2D::draw() {
 
 	// begin drawing sprites
 	m_2dRenderer->begin();
+
+	m_human->Draw(m_2dRenderer);
 
 	// demonstrate animation
 	m_2dRenderer->setUVRect(int(m_timer) % 8 / 8.0f, 0, 1.f / 8, 1.f / 8);

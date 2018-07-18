@@ -39,6 +39,15 @@
     <ClCompile Include="WanderBehaviour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseDecision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolBehaviour.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -60,6 +69,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WanderBehaviour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDecision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolBehaviour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

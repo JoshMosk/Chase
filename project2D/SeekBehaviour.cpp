@@ -9,9 +9,9 @@ SeekBehaviour::~SeekBehaviour()
 {
 }
 
-Vector2 SeekBehaviour::Update(float fDeltaTime, Vector2* v2Target)
+Vector2 SeekBehaviour::Update(float fDeltaTime, Vector2 v2Target)
 {
-	Vector2 v2Dir = *v2Target - m_pSelf->GetPosition();		//get direction of target
+	Vector2 v2Dir = v2Target - m_pSelf->GetPosition();		//get direction of target
 	v2Dir.normalise();		//normalise direction for consistent speed
 
 	v2Dir = v2Dir * m_pSelf->GetMaxSpeed();		//scale the direction to max velocity

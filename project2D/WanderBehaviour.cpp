@@ -7,15 +7,15 @@
 WanderBehaviour::WanderBehaviour(Agent* pSelf, float fRadius, float fDistance, float fJitter) : BaseSteeringBehaviour(pSelf)
 {
 	
-	m_v2PrevTarget.x = rand() / PI;
-	m_v2PrevTarget.y = rand() / PI;
+	m_v2Target.x = rand() / PI;
+	m_v2Target.y = rand() / PI;
 }
 
 WanderBehaviour::~WanderBehaviour()
 {
 }
 
-Vector2 WanderBehaviour::Update(float fDeltaTime, Vector2* v2Target)
+Vector2 WanderBehaviour::Update(float fDeltaTime, Vector2 v2Target)
 {
 	float fNewDir = m_pSelf->GetRotation();		//get direction of wander
 	//v2newDir.normalise();		//scale direction down to one
@@ -29,15 +29,15 @@ Vector2 WanderBehaviour::Update(float fDeltaTime, Vector2* v2Target)
 	v2Jitter.normalise();//scale direction down to one
 	v2Jitter = v2Jitter * m_fJitter;		//scale up to m_fDistance
 
-	m_v2PrevTarget = m_v2PrevTarget + v2Jitter;		//jittered direction
-	m_v2PrevTarget.normalise();		//scale jittered direction down to one
-	m_v2PrevTarget = m_v2PrevTarget * m_fRadius;		//scale up to m_fRadius
+	m_v2Target = m_v2Target + v2Jitter;		//jittered direction
+	m_v2Target.normalise();		//scale jittered direction down to one
+	m_v2Target = m_v2Target * m_fRadius;		//scale up to m_fRadius
 
 	Vector2 v2Offset;		//offsets the wander in front of the agent 
 	v2Offset.x = -sin(fNewDir) * m_fDistance;
 	v2Offset.y = cosf(fNewDir) * m_fDistance;
 
-	m_v2PrevTarget = m_v2PrevTarget + v2Offset + m_pSelf->GetPosition();
+	m_v2Target = m_v2Target + v2Offset + m_pSelf->GetPosition();
 
-	return m_v2PrevTarget;
+	return m_v2Target;
 }

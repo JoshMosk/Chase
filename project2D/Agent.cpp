@@ -1,7 +1,7 @@
 #include "Agent.h"
 
 Agent::Agent(Vector2 m3Tranform, float fRadiansRotation, float fMaxSpeed, aie::Texture* pTexture) 
-		: GameObject(m3Tranform, fRadiansRotation, m_pTexture)		//sets up agent's max speed and calls the GameObject constructor
+	: GameObject(m3Tranform, fRadiansRotation, pTexture)		//sets up agent's max speed and calls the GameObject constructor
 {
 	m_fMaxSpeed = fMaxSpeed;
 }
@@ -12,7 +12,9 @@ Agent::~Agent()
 
 void Agent::Update(float fDeltaTime)
 {
+	//need to add non uniform movement
 
+	
 }
 
 void Agent::Draw(aie::Renderer2D* pRenderer)		//draws texture of agent using matrix

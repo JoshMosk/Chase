@@ -1,11 +1,10 @@
 #pragma once
 #include "GameObject.h"
-#include <vector>
 
 class Agent : public GameObject
 {
 public:
-	Agent(Vector2 m3Tranform, float fRadiansRotation, float fMaxSpeed, aie::Texture* pTexture);
+	Agent(Vector2 v2Tranform, float fRadiansRotation, float fMaxSpeed, aie::Texture* pTexture);
 	virtual ~Agent();
 
 	virtual void Update(float fDeltaTime);

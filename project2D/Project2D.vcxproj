@@ -168,7 +168,12 @@
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="BaseDecision.cpp" />
     <ClCompile Include="BaseSteeringBehaviour.cpp" />
+    <ClCompile Include="Dog.cpp" />
     <ClCompile Include="FleeBehaviour.cpp" />
+    <ClCompile Include="FlockingAlignment.cpp" />
+    <ClCompile Include="FlockingBehaviour.cpp" />
+    <ClCompile Include="FlockingCohesion.cpp" />
+    <ClCompile Include="FlockingSeperation.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="main.cpp" />
@@ -181,7 +186,12 @@
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="BaseDecision.h" />
     <ClInclude Include="BaseSteeringBehaviour.h" />
+    <ClInclude Include="Dog.h" />
     <ClInclude Include="FleeBehaviour.h" />
+    <ClInclude Include="FlockingAlignment.h" />
+    <ClInclude Include="FlockingBehaviour.h" />
+    <ClInclude Include="FlockingCohesion.h" />
+    <ClInclude Include="FlockingSeperation.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="PatrolBehaviour.h" />

@@ -6,7 +6,7 @@ class PatrolBehaviour;
 class Human : public Agent
 {
 public:
-	Human(Vector2 v2Tranform, float fRadiansRotation, float fMaxSpeed, aie::Texture* pTexture);
+	Human(Vector2 v2Tranform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture);
 	~Human();
 
 	void Update(float fDeltaTime);

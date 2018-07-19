@@ -19,9 +19,9 @@ void PatrolBehaviour::AddPatrolPoint(Vector2 v2NewPoint)
 
 Vector2 PatrolBehaviour::Update(float fDeltaTime, Vector2 v2Target)
 {
-	if (m_pSelf->GetPosition().x < m_path[nCurrentPoint].x + 20)
+	if (m_pSelf->GetPosition().x < m_path[nCurrentPoint].x + 20 && m_pSelf->GetPosition().x > m_path[nCurrentPoint].x - 20)
 	{
-		if (m_pSelf->GetPosition().y < m_path[nCurrentPoint].y - 20)
+		if (m_pSelf->GetPosition().y < m_path[nCurrentPoint].y + 20 && m_pSelf->GetPosition().y > m_path[nCurrentPoint].y - 20)
 		{
 			nCurrentPoint++;
 		}

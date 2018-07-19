@@ -13,7 +13,7 @@ public:
 
 	Vector2 Update(float fDeltaTime, Vector2 v2Target)override;
 
-private:
+//private:
 	std::vector<Vector2> m_path;
 	int nCurrentPoint;
 };

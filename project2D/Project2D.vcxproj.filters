@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Steering">
+      <UniqueIdentifier>{5fd9d115-e82d-4e41-b775-21254bc2931a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steering\Flocking">
+      <UniqueIdentifier>{ae42bcd9-0a09-4044-bff4-e2525927f517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp">
@@ -27,26 +33,41 @@
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SeekBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseSteeringBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FleeBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WanderBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BaseDecision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Human.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PatrolBehaviour.cpp">
+    <ClCompile Include="Dog.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderBehaviour.cpp">
+      <Filter>Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehaviour.cpp">
+      <Filter>Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolBehaviour.cpp">
+      <Filter>Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeBehaviour.cpp">
+      <Filter>Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSteeringBehaviour.cpp">
+      <Filter>Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingBehaviour.cpp">
+      <Filter>Steering\Flocking</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingSeperation.cpp">
+      <Filter>Steering\Flocking</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingAlignment.cpp">
+      <Filter>Steering\Flocking</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingCohesion.cpp">
+      <Filter>Steering\Flocking</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,26 +80,41 @@
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SeekBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseSteeringBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FleeBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WanderBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseDecision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Human.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PatrolBehaviour.h">
+    <ClInclude Include="Dog.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehaviour.h">
+      <Filter>Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolBehaviour.h">
+      <Filter>Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehaviour.h">
+      <Filter>Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderBehaviour.h">
+      <Filter>Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSteeringBehaviour.h">
+      <Filter>Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingBehaviour.h">
+      <Filter>Steering\Flocking</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingSeperation.h">
+      <Filter>Steering\Flocking</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingAlignment.h">
+      <Filter>Steering\Flocking</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingCohesion.h">
+      <Filter>Steering\Flocking</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

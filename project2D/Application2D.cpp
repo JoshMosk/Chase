@@ -102,9 +102,12 @@ void Application2D::draw() {
 	//m_2dRenderer->setRenderColour(1, 0, 1, 1);
 	//m_2dRenderer->drawCircle(sin(m_timer) * 100 + 600, 150, 50);
 
-	//// draw a rotating red box
-	//m_2dRenderer->setRenderColour(1, 0, 0, 1);
-	//m_2dRenderer->drawBox(600, 500, 60, 20, m_timer);
+	// draw a rotating red box
+	m_2dRenderer->setRenderColour(1, 0, 0, 1);
+	m_2dRenderer->drawBox(200, 600, 5, 5, m_timer);
+	m_2dRenderer->drawBox(600, 600, 5, 5, m_timer);
+	m_2dRenderer->drawBox(600, 200, 5, 5, m_timer);
+	m_2dRenderer->drawBox(200, 200, 5, 5, m_timer);
 
 	//// draw a slightly rotated sprite with no texture, coloured yellow
 	//m_2dRenderer->setRenderColour(1, 1, 0, 1);

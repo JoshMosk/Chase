@@ -6,11 +6,12 @@ class SeekBehaviour;
 class FlockingCohesion : public BaseSteeringBehaviour
 {
 public:
-	FlockingCohesion();
+	FlockingCohesion(FlockingBehaviour* pFlocking, Agent* pSelf);
 	~FlockingCohesion();
 
-	Vector2 Update(float fDeltaTime, FlockingBehaviour* pFlocking, Agent* pAgent);
+	Vector2 Update(float fDeltaTime, Vector2 v2Target);		//v2Target is not used
 
+	FlockingBehaviour* pFlock;
 private:
 	SeekBehaviour * m_pSeek;
 };

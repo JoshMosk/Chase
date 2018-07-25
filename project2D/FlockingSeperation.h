@@ -5,9 +5,11 @@ class FlockingBehaviour;
 class FlockingSeperation : public BaseSteeringBehaviour
 {
 public:
-	FlockingSeperation();
+	FlockingSeperation(FlockingBehaviour* pFlocking);
 	~FlockingSeperation();
 
-	Vector2 Update(float fDeltaTime, FlockingBehaviour* pFlocking, Agent* pAgent);
+	Vector2 Update(float fDeltaTime, Vector2 v2Target);
+
+	FlockingBehaviour* pFlock;
 };
 

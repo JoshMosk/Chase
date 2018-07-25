@@ -3,9 +3,10 @@
 #include "FlockingBehaviour.h"
 #include "Agent.h"
 
-FlockingCohesion::FlockingCohesion()
+FlockingCohesion::FlockingCohesion(FlockingBehaviour* pFlocking, Agent* pSelf)
 {
-
+	pFlock = pFlocking;
+	m_pSelf = pSelf;
 }
 
 FlockingCohesion::~FlockingCohesion()
@@ -13,9 +14,9 @@ FlockingCohesion::~FlockingCohesion()
 	delete m_pSeek;
 }
 
-Vector2 FlockingCohesion::Update(float fDeltaTime, FlockingBehaviour* pFlocking, Agent* pAgent)
+Vector2 FlockingCohesion::Update(float fDeltaTime, Vector2 v2Target)
 {
-	int nFlockSize = pFlocking->GetFlock().size();
+	int nFlockSize = pFlock->GetFlock().size();
 
 	Vector2 v2SumForce;
 
@@ -23,13 +24,13 @@ Vector2 FlockingCohesion::Update(float fDeltaTime, FlockingBehaviour* pFlocking,
 
 	for (int i = 0; i < nFlockSize; i++)
 	{
-		v2SumForce = v2SumForce + pFlocking->GetFlock()[i].pAgent->GetPosition();
+		v2SumForce = v2SumForce + pFlock->GetFlock()[i].pAgent->GetPosition();
 	}
 
 	Vector2 v2Average = v2SumForce * (1.0f / (float)nFlockSize);
 
-	m_pSeek->SetSelf(pAgent);
+	m_pSeek->SetSelf(m_pSelf);
 	Vector2 result = m_pSeek->Update(fDeltaTime, v2Average);
 
-	return result * m_fWeighting
+	return result * m_fWeighting;
 }

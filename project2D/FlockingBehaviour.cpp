@@ -4,26 +4,27 @@
 #include "FlockingSeperation.h"
 #include "FlockingAlignment.h"
 #include "FlockingCohesion.h"
+#include <iostream>
 
 FlockingBehaviour::FlockingBehaviour(Agent* pSelf)
 	: BaseSteeringBehaviour(pSelf)
 {
-	fFlockDistance = 300.0f;
+	fFlockDistance = 150.0f;
 
 	m_pSeperation = new FlockingSeperation(this);
 	m_pAlignment = new FlockingAlignment(this, m_pSelf);
 	m_pCohesion = new FlockingCohesion(this, m_pSelf);
 
-	m_pSeperation->m_fWeighting = 0.05f;
-	m_pAlignment->m_fWeighting = 2.0f;
-	m_pCohesion->m_fWeighting = 2.0f;
+	m_pSeperation->m_fWeighting = 0.4f;
+	m_pAlignment->m_fWeighting = 0.2f;
+	m_pCohesion->m_fWeighting = 0.4f;
 }
 
 FlockingBehaviour::~FlockingBehaviour()
 {
 }
 
-Vector2 FlockingBehaviour::Update(float fDeltaTime)
+Vector2 FlockingBehaviour::Update(float fDeltaTime, Vector2 v2Target)
 {
 	CalcFlock();
 	Vector2 v2TotalVelocity;
@@ -37,8 +38,10 @@ Vector2 FlockingBehaviour::Update(float fDeltaTime)
 			break;
 		}
 
-		if (m_flock[i].fMagnitude < fFlockDistance)		//if flock is within flocking distance
+		if ((m_pSelf->GetPosition() - m_flock[i].pAgent->GetPosition()).squaredMagnitude() < fFlockDistance * fFlockDistance)		//if flock is within flocking distance
 		{
+			float fDist = (m_pSelf->GetPosition() - m_flock[i].pAgent->GetPosition()).squaredMagnitude();
+			//JM:STARTHERE, need to get flocking working again due to speed bug,ugh
 			//do things
 			Vector2 v2SepForce;
 			Vector2 v2AliForce;
@@ -48,17 +51,12 @@ Vector2 FlockingBehaviour::Update(float fDeltaTime)
 			v2AliForce = m_pAlignment->Update(fDeltaTime, Vector2()) * m_pAlignment->m_fWeighting;
 			v2CohForce = m_pCohesion->Update(fDeltaTime,Vector2()) * m_pCohesion->m_fWeighting;
 
-			if (v2SepForce.magnitude() < fRemaining)		//calculate seperation force
-			{
-				v2TotalVelocity = v2TotalVelocity + v2SepForce;
-			}
-			else
-			{
-				v2SepForce.normalise();
-				v2SepForce = v2SepForce * fRemaining;
+			//std::cout 
+			//	<< v2SepForce.x << " " << v2SepForce.y << ", " 
+			//	<< v2AliForce.x << " " << v2AliForce.y << ", " 
+			//	<< v2CohForce.x << " " << v2CohForce.y << std::endl;
 
-				v2TotalVelocity = v2TotalVelocity + v2SepForce;
-			}
+			std::cout << fRemaining << ", ";
 
 			if (v2AliForce.magnitude() < fRemaining)		//calculate alignment force
 			{
@@ -71,9 +69,11 @@ Vector2 FlockingBehaviour::Update(float fDeltaTime)
 
 				v2TotalVelocity = v2TotalVelocity + v2AliForce;
 			}
-
+			std::cout << fRemaining << ", ";
 			if (v2CohForce.magnitude() < fRemaining)		//calculate cohesion force
 			{
+				//v2CohForce = (v2CohForce * fDist);
+
 				v2TotalVelocity = v2TotalVelocity + v2CohForce;
 			}
 			else
@@ -82,6 +82,20 @@ Vector2 FlockingBehaviour::Update(float fDeltaTime)
 				v2CohForce = v2CohForce * fRemaining;
 
 				v2TotalVelocity = v2TotalVelocity + v2CohForce;
+			}
+			std::cout << fRemaining << std::endl;
+			if (v2SepForce.magnitude() < fRemaining)		//calculate seperation force
+			{
+				//v2SepForce = (v2SepForce * fDist);
+
+				v2TotalVelocity = v2TotalVelocity + v2SepForce;
+			}
+			else
+			{
+				v2SepForce.normalise();
+				v2SepForce = v2SepForce * fRemaining;
+
+				v2TotalVelocity = v2TotalVelocity + v2SepForce;
 			}
 		}
 	}

@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ABDecision.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="BaseDecision.cpp" />
@@ -179,9 +180,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PatrolBehaviour.cpp" />
     <ClCompile Include="SeekBehaviour.cpp" />
+    <ClCompile Include="SeeTargetDecision.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ABDecision.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="BaseDecision.h" />
@@ -196,6 +199,7 @@
     <ClInclude Include="Human.h" />
     <ClInclude Include="PatrolBehaviour.h" />
     <ClInclude Include="SeekBehaviour.h" />
+    <ClInclude Include="SeeTargetDecision.h" />
     <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

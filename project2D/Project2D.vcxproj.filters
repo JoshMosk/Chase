@@ -19,6 +19,27 @@
     <Filter Include="Steering\Flocking">
       <UniqueIdentifier>{ae42bcd9-0a09-4044-bff4-e2525927f517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Decision">
+      <UniqueIdentifier>{1b55ab1f-e980-4102-9c69-744f803e0e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Decision\header">
+      <UniqueIdentifier>{70016ffd-f6d4-465c-ba7d-998c3cfb9570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Decision\source">
+      <UniqueIdentifier>{401aedd0-52c0-45a0-9d0a-b09438f2acc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steering\header">
+      <UniqueIdentifier>{4a147902-0d2f-4d85-807b-42aea4405721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steering\source">
+      <UniqueIdentifier>{24cf92ca-4c40-44dd-ac4d-0b93821acc43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steering\Flocking\header">
+      <UniqueIdentifier>{a924f092-1b22-4f4b-b6d6-69979d1ffb6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Steering\Flocking\source">
+      <UniqueIdentifier>{364add97-dcf6-40d6-aae6-cf5dcbd5569a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp">
@@ -33,41 +54,47 @@
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseDecision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Human.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WanderBehaviour.cpp">
-      <Filter>Steering</Filter>
+    <ClCompile Include="ABDecision.cpp">
+      <Filter>Decision\source</Filter>
     </ClCompile>
-    <ClCompile Include="SeekBehaviour.cpp">
-      <Filter>Steering</Filter>
-    </ClCompile>
-    <ClCompile Include="PatrolBehaviour.cpp">
-      <Filter>Steering</Filter>
-    </ClCompile>
-    <ClCompile Include="FleeBehaviour.cpp">
-      <Filter>Steering</Filter>
+    <ClCompile Include="BaseDecision.cpp">
+      <Filter>Decision\source</Filter>
     </ClCompile>
     <ClCompile Include="BaseSteeringBehaviour.cpp">
-      <Filter>Steering</Filter>
+      <Filter>Steering\source</Filter>
     </ClCompile>
-    <ClCompile Include="FlockingBehaviour.cpp">
-      <Filter>Steering\Flocking</Filter>
+    <ClCompile Include="FleeBehaviour.cpp">
+      <Filter>Steering\source</Filter>
     </ClCompile>
-    <ClCompile Include="FlockingSeperation.cpp">
-      <Filter>Steering\Flocking</Filter>
+    <ClCompile Include="PatrolBehaviour.cpp">
+      <Filter>Steering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderBehaviour.cpp">
+      <Filter>Steering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehaviour.cpp">
+      <Filter>Steering\source</Filter>
     </ClCompile>
     <ClCompile Include="FlockingAlignment.cpp">
-      <Filter>Steering\Flocking</Filter>
+      <Filter>Steering\Flocking\source</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingBehaviour.cpp">
+      <Filter>Steering\Flocking\source</Filter>
     </ClCompile>
     <ClCompile Include="FlockingCohesion.cpp">
-      <Filter>Steering\Flocking</Filter>
+      <Filter>Steering\Flocking\source</Filter>
+    </ClCompile>
+    <ClCompile Include="SeeTargetDecision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingSeperation.cpp">
+      <Filter>Steering\Flocking\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,41 +107,47 @@
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BaseDecision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Human.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FleeBehaviour.h">
-      <Filter>Steering</Filter>
+    <ClInclude Include="ABDecision.h">
+      <Filter>Decision\header</Filter>
     </ClInclude>
-    <ClInclude Include="PatrolBehaviour.h">
-      <Filter>Steering</Filter>
-    </ClInclude>
-    <ClInclude Include="SeekBehaviour.h">
-      <Filter>Steering</Filter>
-    </ClInclude>
-    <ClInclude Include="WanderBehaviour.h">
-      <Filter>Steering</Filter>
+    <ClInclude Include="BaseDecision.h">
+      <Filter>Decision\header</Filter>
     </ClInclude>
     <ClInclude Include="BaseSteeringBehaviour.h">
-      <Filter>Steering</Filter>
+      <Filter>Steering\header</Filter>
     </ClInclude>
-    <ClInclude Include="FlockingBehaviour.h">
-      <Filter>Steering\Flocking</Filter>
+    <ClInclude Include="FleeBehaviour.h">
+      <Filter>Steering\header</Filter>
     </ClInclude>
-    <ClInclude Include="FlockingSeperation.h">
-      <Filter>Steering\Flocking</Filter>
+    <ClInclude Include="PatrolBehaviour.h">
+      <Filter>Steering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehaviour.h">
+      <Filter>Steering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderBehaviour.h">
+      <Filter>Steering\header</Filter>
     </ClInclude>
     <ClInclude Include="FlockingAlignment.h">
-      <Filter>Steering\Flocking</Filter>
+      <Filter>Steering\Flocking\header</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingBehaviour.h">
+      <Filter>Steering\Flocking\header</Filter>
     </ClInclude>
     <ClInclude Include="FlockingCohesion.h">
-      <Filter>Steering\Flocking</Filter>
+      <Filter>Steering\Flocking\header</Filter>
+    </ClInclude>
+    <ClInclude Include="SeeTargetDecision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingSeperation.h">
+      <Filter>Steering\Flocking\header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

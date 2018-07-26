@@ -14,7 +14,6 @@ FlockingSeperation::~FlockingSeperation()
 Vector2 FlockingSeperation::Update(float fDeltaTime, Vector2 v2Target)
 {
 	int nFlockSize = pFlock->GetFlock().size();
-	//Vector2 v2AgentPos = pAgent->GetPosition();
 
 	Vector2 v2SumForce = Vector2(0, 0);
 
@@ -22,7 +21,7 @@ Vector2 FlockingSeperation::Update(float fDeltaTime, Vector2 v2Target)
 	{
 		Vector2 v2BoidPos = pFlock->GetFlock()[i].pAgent->GetPosition();
 
-		v2SumForce = v2SumForce + (v2BoidPos - v2Target);//v2AgentPos);
+		v2SumForce = v2SumForce - (v2BoidPos - v2Target);
 	}
 
 	Vector2 v2Average = v2SumForce * (1.0f / (float)nFlockSize);

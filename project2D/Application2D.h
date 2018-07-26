@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include "Human.h"
+#include "Dog.h"
 
 class Application2D : public aie::Application {
 public:
@@ -24,6 +25,7 @@ protected:
 	aie::Font*			m_font;
 
 	Human* m_human;
+	Dog* m_dog;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;

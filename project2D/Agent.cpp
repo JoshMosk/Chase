@@ -1,7 +1,7 @@
 #include "Agent.h"
 #include <math.h>
 
-Agent::Agent(Vector2 m3Transform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture)
+Agent::Agent(Vector2 m3Transform, float fRadiansRotation, float fMaxSpeed, float fSpeed, aie::Texture* pTexture)
 	: GameObject(m3Transform, fRadiansRotation, pTexture)		//sets up agent's speed and max speed and calls the GameObject constructor
 {
 	m_fMaxSpeed = fMaxSpeed;

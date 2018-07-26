@@ -20,9 +20,9 @@ public:
 	void SetTargetPos(Vector2 v2NewTargetPos);
 	Vector2 GetTargetPos();
 
+	float m_fSpeed;
 protected:
 	Vector2 m_v2Velocity;
-	float m_fSpeed;
 	float m_fMaxSpeed;
 
 	Vector2 m_v2TargetPos;

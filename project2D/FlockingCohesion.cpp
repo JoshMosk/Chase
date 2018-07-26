@@ -5,6 +5,7 @@
 
 FlockingCohesion::FlockingCohesion(FlockingBehaviour* pFlocking, Agent* pSelf)
 {
+	m_pSeek = new SeekBehaviour(m_pSelf);
 	pFlock = pFlocking;
 	m_pSelf = pSelf;
 }

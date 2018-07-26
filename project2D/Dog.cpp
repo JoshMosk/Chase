@@ -6,7 +6,8 @@
 Dog::Dog(Vector2 v2Tranform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture, Human* pHuman)
 	: Agent(v2Tranform, fRadiansRotation, fSpeed, fMaxSpeed, pTexture)
 {
-	m_pHuman = pHuman;
+	m_pFlock = new FlockingBehaviour(this);
+	m_pFlock->AddToFlock(pHuman);
 }
 
 Dog::~Dog()
@@ -15,7 +16,8 @@ Dog::~Dog()
 
 void Dog::Update(float fDeltaTime)
 {
-
+	SetTargetPos(m_pFlock->Update(fDeltaTime));
+	Agent::Update(fDeltaTime);
 }
 
 void Dog::Draw(aie::Renderer2D* pRenderer)

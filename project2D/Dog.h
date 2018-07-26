@@ -1,6 +1,7 @@
 #pragma once
 #include "Agent.h"
 class Human;
+class FlockingBehaviour;
 
 class Dog : public Agent
 {
@@ -10,7 +11,9 @@ public:
 
 	void Update(float fDeltaTime);
 	void Draw(aie::Renderer2D* pRenderer);
-	
-	Human* m_pHuman;
+
+	FlockingBehaviour* m_pFlock;
+
+
 };
 

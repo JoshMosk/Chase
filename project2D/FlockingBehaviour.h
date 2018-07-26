@@ -17,7 +17,7 @@ public:
 	FlockingBehaviour(Agent* pSelf);
 	~FlockingBehaviour();
 
-	Vector2 Update(float fDeltaTime);
+	Vector2 Update(float fDeltaTime, Vector2 v2Target = Vector2());		//v2Target isnt used
 
 	void AddToFlock(Agent* pAgent);
 
@@ -26,8 +26,8 @@ public:
 	void CalcFlock();
 	float fFlockDistance;
 
-private:
 	std::vector<Boid> m_flock;
+private:
 
 	FlockingSeperation* m_pSeperation;
 	FlockingAlignment* m_pAlignment;

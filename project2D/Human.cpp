@@ -1,8 +1,8 @@
 #include "Human.h"
 #include "PatrolBehaviour.h"
 
-Human::Human(Vector2 v2Tranform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture)
-	: Agent(v2Tranform, fRadiansRotation, fSpeed, fMaxSpeed, pTexture)
+Human::Human(Vector2 v2Tranform, float fRadiansRotation, float fMaxSpeed, float fSpeed, aie::Texture* pTexture)
+	: Agent(v2Tranform, fRadiansRotation, fMaxSpeed, fSpeed, pTexture)
 {
 	m_patrol = new PatrolBehaviour(this);
 

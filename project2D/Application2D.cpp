@@ -5,6 +5,7 @@
 #include <time.h>
 #include <iostream>
 #include "PatrolBehaviour.h"
+#include "FlockingBehaviour.h"
 
 Application2D::Application2D() {
 
@@ -20,12 +21,13 @@ bool Application2D::startup() {
 
 	m_2dRenderer = new aie::Renderer2D();
 
-	m_texture = new aie::Texture("./textures/numbered_grid.tga");
+	m_texture = new aie::Texture("./textures/barrelBeige.tga");
 	m_shipTexture = new aie::Texture("./textures/barrelBeige.png");
 
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
-	m_human = new Human(Vector2(100,300), 0, 01, 100, m_shipTexture);
+	m_human = new Human(Vector2(100,300), 0, 100, 100, m_shipTexture);
+	m_dog = new Dog(Vector2(300, 600), 0, 100, 100, m_texture, m_human);
 
 	m_cameraX = 0;
 	m_cameraY = 0;
@@ -36,6 +38,7 @@ bool Application2D::startup() {
 
 void Application2D::shutdown() 
 {
+	delete m_dog;
 	delete m_human;
 	delete m_font;
 	delete m_texture;
@@ -51,10 +54,14 @@ void Application2D::update(float deltaTime) {
 	aie::Input* input = aie::Input::getInstance();
 
 	m_human->Update(deltaTime);
+	m_dog->Update(deltaTime);
 
-	std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].x << " ";
-	std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].y << std::endl;
-	//std::cout << m_human->GetTargetPos().y << std::endl;
+	//std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].x << " ";
+	//std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].y << std::endl;
+	//std::cout << m_dog->GetTargetPos().x << ", " << m_dog->GetTargetPos().y << std::endl;
+	//std::cout << m_dog->GetPosition().x << ", " << m_dog->GetPosition().y << std::endl;
+	//std::cout << m_dog->m_pFlock->GetFlock()[0].fMagnitude << std::endl;
+	//std::cout << m_dog->m_fSpeed << std::endl;
 
 	// use arrow keys to move camera
 	if (input->isKeyDown(aie::INPUT_KEY_UP))
@@ -85,8 +92,14 @@ void Application2D::draw() {
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
-	m_human->Draw(m_2dRenderer);
+	m_2dRenderer->setRenderColour(0x444444ff);
+	m_2dRenderer->drawCircle(m_dog->GetPosition().x, m_dog->GetPosition().y, m_dog->m_pFlock->fFlockDistance);
+	m_2dRenderer->setRenderColour(0xffffffff);
 
+	m_human->Draw(m_2dRenderer);
+	m_dog->Draw(m_2dRenderer);
+
+	m_2dRenderer->drawBox(m_dog->GetPosition().x, m_dog->GetPosition().y, 5, 5, m_timer);
 	//// demonstrate animation
 	//m_2dRenderer->setUVRect(int(m_timer) % 8 / 8.0f, 0, 1.f / 8, 1.f / 8);
 	//m_2dRenderer->drawSprite(m_texture, 200, 200, 100, 100);

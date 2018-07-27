@@ -17,13 +17,23 @@ Agent::~Agent()
 void Agent::Update(float fDeltaTime)
 {
 	//need to add non uniform movement
-	//Vector2 v2NewVelocity = m_v2Velocity + m_v2TargetPos * fDeltaTime;
-	m_v2Velocity = m_v2Velocity + m_v2TargetPos * m_fSpeed * fDeltaTime;
+	m_v2Velocity = m_v2Velocity + m_v2TargetPos;
 
 	GameObject::SetPosition(GameObject::GetPosition() + m_v2Velocity * fDeltaTime);
 	//float fTurn = atan2(GetVelocity().y, GetVelocity().x);
 	GameObject::SetRotation(atan2(m_v2Velocity.y, m_v2Velocity.x));//m_v2Velocity.dot(m_v2Velocity));
 	//GameObject::m_m3Transform.setPosition(GameObject::m_m3Transform.GetPosition() + m_v2Velocity);
+
+	float fCurrentSpeed = m_v2Velocity.magnitude();
+
+	if (fCurrentSpeed > m_fMaxSpeed)
+	{
+		m_v2Velocity = m_v2Velocity / m_fMaxSpeed;
+	}
+	if (fCurrentSpeed < -m_fMaxSpeed)
+	{
+		m_v2Velocity = m_v2Velocity / -m_fMaxSpeed;
+	}
 }
 
 void Agent::Draw(aie::Renderer2D* pRenderer)		//draws texture of agent using matrix

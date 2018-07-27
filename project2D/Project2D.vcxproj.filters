@@ -90,11 +90,17 @@
     <ClCompile Include="FlockingCohesion.cpp">
       <Filter>Steering\Flocking\source</Filter>
     </ClCompile>
-    <ClCompile Include="SeeTargetDecision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FlockingSeperation.cpp">
       <Filter>Steering\Flocking\source</Filter>
+    </ClCompile>
+    <ClCompile Include="SeeTargetDecision.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="DogDecisionMaking.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="IsTargetInRangeDecision.cpp">
+      <Filter>Decision\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,11 +149,17 @@
     <ClInclude Include="FlockingCohesion.h">
       <Filter>Steering\Flocking\header</Filter>
     </ClInclude>
-    <ClInclude Include="SeeTargetDecision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FlockingSeperation.h">
       <Filter>Steering\Flocking\header</Filter>
+    </ClInclude>
+    <ClInclude Include="SeeTargetDecision.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="DogDecisionMaking.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="IsTargetInRangeDecision.h">
+      <Filter>Decision\header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

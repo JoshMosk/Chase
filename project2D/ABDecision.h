@@ -11,6 +11,6 @@ public:
 
 	bool m_bCondition;
 
-	void MakeDecision(float fDeltaTime, Agent* pAgent) override;
+	void MakeDecision(float fDeltaTime, Agent* pAgent) override;		//makes decision based on condition,should be used to derive specific classes from
 };
 

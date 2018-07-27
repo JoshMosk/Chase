@@ -11,7 +11,7 @@ public:
 
 	Vector2 Update(float fDeltaTime, Vector2 v2Target);		//v2Target is not used
 
-	FlockingBehaviour* pFlock;
+	FlockingBehaviour* m_pFlock;
 private:
 	SeekBehaviour * m_pSeek;
 };

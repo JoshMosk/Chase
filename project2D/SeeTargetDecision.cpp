@@ -1,8 +1,9 @@
 #include "SeeTargetDecision.h"
 #include "Agent.h"
 
-SeeTargetDecision::SeeTargetDecision()
+SeeTargetDecision::SeeTargetDecision(Agent* pTarget)
 {
+	m_pTarget = pTarget;
 }
 
 SeeTargetDecision::~SeeTargetDecision()

@@ -10,7 +10,7 @@ ABDecision::~ABDecision()
 {
 }
 
-void ABDecision::MakeDecision(float fDeltaTime, Agent* pAgent)
+void ABDecision::MakeDecision(float fDeltaTime, Agent* pAgent)		//makes decision based on condition,should be used to derive specific classes from
 {
 	if (m_bCondition)
 	{

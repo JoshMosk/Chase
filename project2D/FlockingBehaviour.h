@@ -24,11 +24,11 @@ public:
 	std::vector<Boid> GetFlock();
 
 	void CalcFlock();
-	float fFlockDistance;
+	float m_fFlockDistance;
 
 	std::vector<Boid> m_flock;
 private:
-
+	Vector2 v2TotalVelocity;
 	FlockingSeperation* m_pSeperation;
 	FlockingAlignment* m_pAlignment;
 	FlockingCohesion* m_pCohesion;

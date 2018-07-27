@@ -6,7 +6,7 @@
 FlockingCohesion::FlockingCohesion(FlockingBehaviour* pFlocking, Agent* pSelf)
 {
 	m_pSeek = new SeekBehaviour(m_pSelf);
-	pFlock = pFlocking;
+	m_pFlock = pFlocking;
 	m_pSelf = pSelf;
 }
 
@@ -17,7 +17,7 @@ FlockingCohesion::~FlockingCohesion()
 
 Vector2 FlockingCohesion::Update(float fDeltaTime, Vector2 v2Target)
 {
-	int nFlockSize = pFlock->GetFlock().size();
+	int nFlockSize = m_pFlock->GetFlock().size();
 
 	Vector2 v2SumForce;
 
@@ -25,7 +25,10 @@ Vector2 FlockingCohesion::Update(float fDeltaTime, Vector2 v2Target)
 
 	for (int i = 0; i < nFlockSize; i++)
 	{
-		v2SumForce = v2SumForce + pFlock->GetFlock()[i].pAgent->GetPosition();
+		if ((m_pSelf->GetPosition() - m_pFlock->m_flock[i].pAgent->GetPosition()).squaredMagnitude() < m_pFlock->m_fFlockDistance * m_pFlock->m_fFlockDistance)
+		{
+			v2SumForce = v2SumForce + m_pFlock->GetFlock()[i].pAgent->GetPosition();
+		}
 	}
 
 	Vector2 v2Average = v2SumForce * (1.0f / (float)nFlockSize);

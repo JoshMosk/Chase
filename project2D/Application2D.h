@@ -4,6 +4,7 @@
 #include "Renderer2D.h"
 #include "Human.h"
 #include "Dog.h"
+#include <vector>
 
 class Application2D : public aie::Application {
 public:
@@ -25,7 +26,8 @@ protected:
 	aie::Font*			m_font;
 
 	Human* m_human;
-	Dog* m_dog;
+	std::vector<Dog*> m_dog;
+	Dog* test;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;

@@ -2,9 +2,10 @@
 #include "FlockingBehaviour.h"
 #include "Agent.h"
 
-FlockingSeperation::FlockingSeperation(FlockingBehaviour* pFlocking)
+FlockingSeperation::FlockingSeperation(FlockingBehaviour* pFlocking, Agent* pSelf)
 {
-	pFlock = pFlocking;
+	m_pFlock = pFlocking;
+	m_pSelf = pSelf;
 }
 
 FlockingSeperation::~FlockingSeperation()
@@ -13,15 +14,18 @@ FlockingSeperation::~FlockingSeperation()
 
 Vector2 FlockingSeperation::Update(float fDeltaTime, Vector2 v2Target)
 {
-	int nFlockSize = pFlock->GetFlock().size();
+	int nFlockSize = m_pFlock->GetFlock().size();
 
 	Vector2 v2SumForce = Vector2(0, 0);
 
 	for (int i = 0; i < nFlockSize; i++)
 	{
-		Vector2 v2BoidPos = pFlock->GetFlock()[i].pAgent->GetPosition();
+		if ((m_pSelf->GetPosition() - m_pFlock->m_flock[i].pAgent->GetPosition()).squaredMagnitude() < m_pFlock->m_fFlockDistance * m_pFlock->m_fFlockDistance)
+		{
+			Vector2 v2BoidPos = m_pFlock->GetFlock()[i].pAgent->GetPosition();
 
-		v2SumForce = v2SumForce - (v2BoidPos - v2Target);
+			v2SumForce = v2SumForce - (v2BoidPos - v2Target);
+		}
 	}
 
 	Vector2 v2Average = v2SumForce * (1.0f / (float)nFlockSize);

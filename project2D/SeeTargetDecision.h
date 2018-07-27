@@ -7,7 +7,7 @@
 class SeeTargetDecision : public ABDecision
 {
 public:
-	SeeTargetDecision();
+	SeeTargetDecision(Agent* pTarget);
 	~SeeTargetDecision();
 
 	void MakeDecision(float fDeltaTime, Agent* pAgent) override;

@@ -23,27 +23,16 @@ bool Application2D::startup() {
 
 	m_texture = new aie::Texture("./textures/barrelBlue.png");
 	m_shipTexture = new aie::Texture("./textures/barrelBeige.png");
+	m_mouseTexture = new aie::Texture("./textures/car.png");
+	m_cheeseTexture = new aie::Texture("./textures/rock_small.png");
 
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
-	m_human = new Human(Vector2(100,300), 0, 100, 50, m_shipTexture);
-	m_dog.push_back(new Dog(Vector2(300, 600), 0, 200, 50, m_texture, m_human));
-	m_dog.push_back(new Dog(Vector2(320, 600), 0, 200, 50, m_texture, m_human));
-	m_dog.push_back(new Dog(Vector2(340, 600), 0, 200, 50, m_texture, m_human));
-	m_dog.push_back(new Dog(Vector2(360, 600), 0, 200, 50, m_texture, m_human));
-
-	for (int i = 0; i < m_dog.size(); i++)
-	{
-		for (int j = 0; j < m_dog.size(); j++)
-		{
-			if (i == j)
-			{
-				continue;
-			}
-			m_dog[i]->m_pFlock->AddToFlock(m_dog[j]);
-		}
-		std::cout << m_dog.size() << std::endl;
-	}
+	m_grid = new Grid();
+	m_cheese = new Cheese(Vector2(0, 0), 0, 200, 50, m_cheeseTexture, m_grid);
+	m_mouse = new Mouse(Vector2(0, 0), 0, 200, 35, m_mouseTexture, m_cheese, m_grid);
+	m_human = new Human(Vector2(100,300), 0, 100, 60, m_shipTexture, m_mouse, m_grid);
+	m_dog = new Dog(Vector2(600, 100), 0, 100, 40, m_texture, m_human, m_mouse, m_grid);
 
 	m_cameraX = 0;
 	m_cameraY = 0;
@@ -54,15 +43,13 @@ bool Application2D::startup() {
 
 void Application2D::shutdown() 
 {
-	for (int i = 0; i < m_dog.size(); i++)
-	{
-		delete m_dog[i];
-	}
+	delete m_dog;
 	delete m_human;
 	delete m_font;
 	delete m_texture;
 	delete m_shipTexture;
 	delete m_2dRenderer;
+	delete m_grid;
 }
 
 void Application2D::update(float deltaTime) {
@@ -73,10 +60,9 @@ void Application2D::update(float deltaTime) {
 	aie::Input* input = aie::Input::getInstance();
 
 	m_human->Update(deltaTime);
-	for (int i = 0; i < m_dog.size(); i++)
-	{
-		m_dog[i]->Update(deltaTime);
-	}
+	m_dog->Update(deltaTime);
+	m_mouse->Update(deltaTime);
+	m_cheese->Update(deltaTime);
 
 	//std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].x << " ";
 	//std::cout << m_human->m_patrol->m_path[m_human->m_patrol->nCurrentPoint].y << std::endl;
@@ -118,12 +104,12 @@ void Application2D::draw() {
 	m_2dRenderer->drawCircle(0, 0, 5);
 	m_2dRenderer->setRenderColour(0xffffffff);
 
-	m_human->Draw(m_2dRenderer);
+	m_grid->Draw(m_2dRenderer);
 
-	for (int i = 0; i < m_dog.size(); i++)
-	{
-		m_dog[i]->Draw(m_2dRenderer);
-	}
+	m_human->Draw(m_2dRenderer);
+	m_dog->Draw(m_2dRenderer);
+	m_mouse->Draw(m_2dRenderer);
+	m_cheese->Draw(m_2dRenderer);
 
 	//m_2dRenderer->drawBox(m_dog->GetPosition().x, m_dog->GetPosition().y, 5, 5, m_dog->GetRotation());
 	//// demonstrate animation

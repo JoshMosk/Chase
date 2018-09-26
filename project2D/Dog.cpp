@@ -1,26 +1,35 @@
 #include "Dog.h"
 #include "Human.h"
 #include "Vector2.h"
+#include "DogDecisionMaking.h"
+#include "FlockDecision.h"
 #include "FlockingBehaviour.h"
-#include "SeeTargetDecision.h"
+#include "Mouse.h"
 
-Dog::Dog(Vector2 v2Tranform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture, Human* pHuman, Agent* pMouse)
+Dog::Dog(Vector2 v2Tranform, float fRadiansRotation, float fSpeed, float fMaxSpeed, aie::Texture* pTexture, Human* pHuman, Mouse* pMouse, Grid* pGrid)
 	: Agent(v2Tranform, fRadiansRotation, fSpeed, fMaxSpeed, pTexture)
 {
-	m_pFlock = new FlockingBehaviour(this);
-	m_pFlock->AddToFlock(pHuman);
+	m_pMouse = pMouse;
+
+	m_pDecisionTree = new DogDecisionMaking(this, pHuman, (Agent*)pMouse, pGrid);
 }
 
 Dog::~Dog()
 {
+	delete m_pDecisionTree;
 }
 
 void Dog::Update(float fDeltaTime)
 {
-	SetTargetPos(m_pFlock->Update(fDeltaTime));
-	Agent::Update(fDeltaTime);
+	SetTargetPos(m_pDecisionTree->Update(fDeltaTime));
+	//SetTargetPos(m_pDecisionTree->m_pFlockHuman->m_v2TargetDirection);//->m_pFlock->Update(fDeltaTime));
+	Agent::Update(fDeltaTime);	
 
-	
+	Vector2 mag = GetPosition() - m_pMouse->GetPosition();
+	if (mag.squaredMagnitude() < 100)
+	{
+		m_pMouse->Die();
+	}
 }
 
 void Dog::Draw(aie::Renderer2D* pRenderer)

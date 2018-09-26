@@ -40,6 +40,9 @@
     <Filter Include="Steering\Flocking\source">
       <UniqueIdentifier>{364add97-dcf6-40d6-aae6-cf5dcbd5569a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pathfinding">
+      <UniqueIdentifier>{ce84cd0f-234d-4ac6-ba9b-297aefd86f23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp">
@@ -102,6 +105,30 @@
     <ClCompile Include="IsTargetInRangeDecision.cpp">
       <Filter>Decision\source</Filter>
     </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockDecision.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanDecisionMaking.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolDecision.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeDecision.cpp">
+      <Filter>Decision\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheese.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -160,6 +187,36 @@
     </ClInclude>
     <ClInclude Include="IsTargetInRangeDecision.h">
       <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockDecision.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanDecisionMaking.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolDecision.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeDecision.h">
+      <Filter>Decision\header</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheese.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Heap.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Pathfinding</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

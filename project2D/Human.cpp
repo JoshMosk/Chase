@@ -1,28 +1,27 @@
 #include "Human.h"
 #include "PatrolBehaviour.h"
+#include "HumanDecisionMaking.h"
+#include "Grid.h"
 
-Human::Human(Vector2 v2Tranform, float fRadiansRotation, float fMaxSpeed, float fSpeed, aie::Texture* pTexture)
+Human::Human(Vector2 v2Tranform, float fRadiansRotation, float fMaxSpeed, float fSpeed, aie::Texture* pTexture, Agent* pMouse, Grid* pGrid)
 	: Agent(v2Tranform, fRadiansRotation, fMaxSpeed, fSpeed, pTexture)
 {
-	m_patrol = new PatrolBehaviour(this);
-
-	m_patrol->AddPatrolPoint(Vector2(200, 600));
-	m_patrol->AddPatrolPoint(Vector2(600, 600));
-	m_patrol->AddPatrolPoint(Vector2(600, 200));
-	m_patrol->AddPatrolPoint(Vector2(200, 200));
+	m_pDecisionTree = new HumanDecisionMaking(this, pMouse, pGrid);
 }
 
 Human::~Human()
 {
-	delete m_patrol;
+	delete m_pDecisionTree;
 }
 
 void Human::Update(float fDeltaTime)
 {
-	Vector2 v2targetPos;
-	v2targetPos = m_patrol->Update(fDeltaTime, Vector2());
+	//Vector2 v2targetPos;
+	//v2targetPos = m_pDecisionTree->Update(fDeltaTime);
 
-	Agent::m_v2TargetPos = v2targetPos;
+	//Agent::m_v2TargetPos = v2targetPos;
+
+	SetTargetPos(m_pDecisionTree->Update(fDeltaTime));
 
 	Agent::Update(fDeltaTime);
 }

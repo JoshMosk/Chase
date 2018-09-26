@@ -1,12 +1,18 @@
 #pragma once
 class Agent;
+#include "Vector2.h"
+#include <vector>
 
 class BaseDecision
 {
 public:
-	BaseDecision();
-	virtual ~BaseDecision() = 0;
+	BaseDecision(Agent* pSelf);
+	virtual ~BaseDecision();
 
-	virtual void MakeDecision(float fDeltaTime, Agent* pAgent) = 0;
+	virtual BaseDecision* MakeDecision(float fDeltaTime);
+
+	Vector2 m_v2TargetDirection;
+
+	Agent* m_pSelf;
 };
 

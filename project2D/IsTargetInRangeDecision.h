@@ -3,10 +3,10 @@
 class IsTargetInRangeDecision : public ABDecision
 {
 public:
-	IsTargetInRangeDecision(Agent* pTarget, float fSightDistance);
+	IsTargetInRangeDecision(Agent* pSelf, Agent* pTarget, float fSightDistance);
 	~IsTargetInRangeDecision();
 
-	void MakeDecision(float fDeltaTime, Agent* pAgent) override;
+	BaseDecision* MakeDecision(float fDeltaTime) override;
 
 	Agent* m_pTarget;
 

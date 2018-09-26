@@ -16,7 +16,7 @@ FlockingBehaviour::FlockingBehaviour(Agent* pSelf)
 	m_pAlignment = new FlockingAlignment(this, m_pSelf);
 	m_pCohesion = new FlockingCohesion(this, m_pSelf);
 
-	m_pSeperation->m_fWeighting = 0.05;
+	m_pSeperation->m_fWeighting = 0.05f;
 	m_pAlignment->m_fWeighting = 0.01f;
 	m_pCohesion->m_fWeighting = 0.1f;
 }
@@ -47,11 +47,11 @@ Vector2 FlockingBehaviour::Update(float fDeltaTime, Vector2 v2Target)
 			v2AliForce = m_pAlignment->Update(fDeltaTime, Vector2()) *m_pAlignment->m_fWeighting;
 			v2CohForce = m_pCohesion->Update(fDeltaTime, Vector2()) *m_pCohesion->m_fWeighting;
 
-			v2TotalVelocity = v2TotalVelocity - (v2SepForce * fDynamicSepForce);		//calculate seperation force
+			v2TotalVelocity = v2TotalVelocity - (v2SepForce *fDynamicSepForce);		//calculate seperation force
 								
 			v2TotalVelocity = v2TotalVelocity + v2AliForce;		//calculate alignment force
 						
-			v2TotalVelocity = v2TotalVelocity + (v2CohForce * fDynamicCohForce); //* fDynamicForce);		//calculate cohesion force
+			v2TotalVelocity = v2TotalVelocity + (v2CohForce *fDynamicCohForce); //* fDynamicForce);		//calculate cohesion force
 
 	}
 	//need to truncate if velocity mag is bigger than max speed 

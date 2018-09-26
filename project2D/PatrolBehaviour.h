@@ -11,7 +11,7 @@ public:
 
 	void AddPatrolPoint(Vector2 v2NewPoint);
 
-	Vector2 Update(float fDeltaTime, Vector2 v2Target)override;
+	Vector2 Update(float fDeltaTime, Vector2 v2Target = Vector2())override;
 
 //private:
 	std::vector<Vector2> m_path;

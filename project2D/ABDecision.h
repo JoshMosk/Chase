@@ -3,7 +3,7 @@
 class ABDecision : public BaseDecision
 {
 public:
-	ABDecision();
+	ABDecision(Agent* pSelf);
 	~ABDecision();
 
 	BaseDecision* A;
@@ -11,6 +11,6 @@ public:
 
 	bool m_bCondition;
 
-	void MakeDecision(float fDeltaTime, Agent* pAgent) override;		//makes decision based on condition,should be used to derive specific classes from
+	BaseDecision* MakeDecision(float fDeltaTime) override;		//makes decision based on condition,should be used to derive specific classes from
 };
 

@@ -5,6 +5,9 @@
 #include "Human.h"
 #include "Dog.h"
 #include <vector>
+#include "Cheese.h"
+#include "Mouse.h"
+#include "Grid.h"
 
 class Application2D : public aie::Application {
 public:
@@ -23,11 +26,15 @@ protected:
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Texture*		m_texture;
 	aie::Texture*		m_shipTexture;
+	aie::Texture*		m_mouseTexture;
+	aie::Texture*		m_cheeseTexture;
 	aie::Font*			m_font;
 
 	Human* m_human;
-	std::vector<Dog*> m_dog;
-	Dog* test;
+	Dog* m_dog;
+	Mouse* m_mouse;
+	Cheese* m_cheese;
+	Grid* m_grid;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;

@@ -7,12 +7,13 @@
 class SeeTargetDecision : public ABDecision
 {
 public:
-	SeeTargetDecision(Agent* pTarget);
+	SeeTargetDecision(Agent* pSelf, Agent* pTarget);
 	~SeeTargetDecision();
 
-	void MakeDecision(float fDeltaTime, Agent* pAgent) override;
+	BaseDecision* MakeDecision(float fDeltaTime) override;
 
 	Agent* m_pTarget;
+
 	float m_fVisionAngle = NORMALVISION;		//min 0, max pi, suggested using NORMALVISION aka halfpi/1.2f
 };
 
